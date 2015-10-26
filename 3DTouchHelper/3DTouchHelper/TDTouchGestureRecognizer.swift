@@ -6,6 +6,7 @@
 //  Copyright © 2015 prototapp. All rights reserved.
 //
 
+import UIKit
 import UIKit.UIGestureRecognizerSubclass
 
 extension UIView {

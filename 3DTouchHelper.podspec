@@ -104,7 +104,7 @@ typealias TDTouchGestureRecognizerCallback = (
   #
 
   # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+  s.platform     = :ios, "9.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
