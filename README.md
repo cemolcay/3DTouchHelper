@@ -6,14 +6,14 @@ Easy to use continuous 3D touch gesture recognizer.
 Install
 ----
 
-### Cocoapods
+#### Cocoapods
 
 ``` ruby
 use_frameworks
 pod '3DTouchHelper'
 ```
 
-### Manual
+#### Manual
 
 Copy & paste `3DTouchHelper` file into your project.
 
@@ -28,7 +28,7 @@ add3DTouchGestureRecognizer { (touchIndex, state, force, normalizedForce, forceV
 }
 ```
 
-### Handler
+#### Handler
 
 ``` swift
 typealias TDTouchGestureRecognizerCallback = (
@@ -38,4 +38,28 @@ typealias TDTouchGestureRecognizerCallback = (
     normalizedForce: CGFloat,
     touchForce: TDTouchForce,
     location: CGPoint) -> Void
+```
+
+#### TDTouchForce
+
+An customisable enum for simplifying 3D touch force
+
+``` swift
+enum TDTouchForce {
+    case Low
+    case Mid
+    case High
+}
+```
+
+#### TDTouchForceValue
+
+A struct for customising `TDTouchForce` enum values
+
+``` swift
+struct TDTouchForceValue {
+    var Low: CGFloat
+    var Mid: CGFloat
+    var High: CGFloat
+}
 ```
