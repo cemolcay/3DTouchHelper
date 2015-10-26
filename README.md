@@ -17,6 +17,14 @@ pod '3DTouchHelper'
 
 Copy & paste `3DTouchHelper` file into your project.
 
+Requirements
+----
+
+* Xcode 7.1
+* Swift 2.1
+* iOS9+
+* iDevice with 3DTouch screen
+
 Usage
 ----
 
@@ -62,4 +70,12 @@ struct TDTouchForceValue {
     var Mid: CGFloat
     var High: CGFloat
 }
+```
+
+You can set your own values with `add3DTouchGestureRecognizer:forceValue:` function.
+
+``` swift
+add3DTouchGestureRecognizer({ (touchIndex, state, force, normalizedForce, touchForce, location) -> Void in
+    print("touch \(touchIndex) \(state) \(forceValue) value \(normalizedForce) at \(location)")
+}, forceValue: TDTouchForceValue(Low: 0.2, Mid: 0.6, High: 0.8))
 ```
