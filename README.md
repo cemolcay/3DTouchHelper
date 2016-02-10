@@ -6,7 +6,7 @@ Easy to use continuous 3D touch gesture recognizer.
 Install
 ----
 
-#### Cocoapods
+#### CocoaPods
 
 ``` ruby
 use_frameworks
