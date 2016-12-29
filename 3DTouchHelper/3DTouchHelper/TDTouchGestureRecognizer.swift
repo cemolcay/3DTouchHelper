@@ -11,12 +11,12 @@ import UIKit.UIGestureRecognizerSubclass
 
 extension UIView {
 
-    func add3DTouchGestureRecognizer(callback: TDTouchGestureRecognizerCallback) {
+    func add3DTouchGestureRecognizer(_ callback: @escaping TDTouchGestureRecognizerCallback) {
         let gesture = TDTouchGestureRecognizer(callback: callback)
         addGestureRecognizer(gesture)
     }
 
-    func add3DTouchGestureRecognizer(callback: TDTouchGestureRecognizerCallback, forceValue: TDTouchForceValue) {
+    func add3DTouchGestureRecognizer(_ callback: @escaping TDTouchGestureRecognizerCallback, forceValue: TDTouchForceValue) {
         let gesture = TDTouchGestureRecognizer(callback: callback, forceValue: forceValue)
         addGestureRecognizer(gesture)
     }
@@ -24,11 +24,11 @@ extension UIView {
 
 extension UIViewController {
 
-    func add3DTouchGestureRecognizer(callback: TDTouchGestureRecognizerCallback) {
+    func add3DTouchGestureRecognizer(_ callback: @escaping TDTouchGestureRecognizerCallback) {
         view.add3DTouchGestureRecognizer(callback)
     }
 
-    func add3DTouchGestureRecognizer(callback: TDTouchGestureRecognizerCallback, forceValue: TDTouchForceValue) {
+    func add3DTouchGestureRecognizer(_ callback: @escaping TDTouchGestureRecognizerCallback, forceValue: TDTouchForceValue) {
         view.add3DTouchGestureRecognizer(callback, forceValue: forceValue)
     }
 }
@@ -40,7 +40,7 @@ extension UITouch {
         return force / maximumPossibleForce
     }
 
-    func forceValue(value: TDTouchForceValue) -> TDTouchForce {
+    func forceValue(_ value: TDTouchForceValue) -> TDTouchForce {
         if normalizedForce <= value.Low {
             return .Low
         } else if normalizedForce > value.Low && normalizedForce <= value.Mid {
@@ -84,12 +84,12 @@ struct TDTouchForceValue {
 // MARK: - Callback
 
 typealias TDTouchGestureRecognizerCallback = (
-    touchIndex: Int,
-    state: UIGestureRecognizerState,
-    force: CGFloat,
-    normalizedForce: CGFloat,
-    touchForce: TDTouchForce,
-    location: CGPoint) -> Void
+    _ touchIndex: Int,
+    _ state: UIGestureRecognizerState,
+    _ force: CGFloat,
+    _ normalizedForce: CGFloat,
+    _ touchForce: TDTouchForce,
+    _ location: CGPoint) -> Void
 
 // MARK: - Recognizer
 
@@ -97,58 +97,58 @@ private class TDTouchGestureRecognizer: UIGestureRecognizer {
 
     // MARK: Properties
 
-    private var callback: TDTouchGestureRecognizerCallback?
-    private var forceValue: TDTouchForceValue!
+    fileprivate var callback: TDTouchGestureRecognizerCallback?
+    fileprivate var forceValue: TDTouchForceValue!
 
     // MARK: Init
 
-    convenience init(callback: TDTouchGestureRecognizerCallback, forceValue: TDTouchForceValue = TDTouchForceValue()) {
+    convenience init(callback: @escaping TDTouchGestureRecognizerCallback, forceValue: TDTouchForceValue = TDTouchForceValue()) {
         self.init(target: nil, action: "")
         self.callback = callback
         self.forceValue = forceValue
     }
 
-    override init(target: AnyObject?, action: Selector) {
+    override init(target: Any?, action: Selector?) {
         super.init(target: target, action: action)
     }
 
     // MARK: Touches
 
-    private override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent) {
-        super.touchesBegan(touches, withEvent: event)
-        self.state = .Began
+    fileprivate override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesBegan(touches, with: event)
+        self.state = .began
         handleGesture(touches)
     }
 
-    private override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent) {
-        super.touchesMoved(touches, withEvent: event)
-        self.state = .Changed
+    fileprivate override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesMoved(touches, with: event)
+        self.state = .changed
         handleGesture(touches)
     }
 
-    private override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent) {
-        super.touchesEnded(touches, withEvent: event)
-        self.state = .Ended
+    fileprivate override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesEnded(touches, with: event)
+        self.state = .ended
         handleGesture(touches)
     }
 
-    private override func touchesCancelled(touches: Set<UITouch>, withEvent event: UIEvent) {
-        super.touchesCancelled(touches, withEvent: event)
-        self.state = .Cancelled
+    fileprivate override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent) {
+        super.touchesCancelled(touches, with: event)
+        self.state = .cancelled
         handleGesture(touches)
     }
 
     // MARK: Handler
 
-    private func handleGesture(touches: Set<UITouch>) {
-        for (index, touch) in touches.enumerate() {
+    fileprivate func handleGesture(_ touches: Set<UITouch>) {
+        for (index, touch) in touches.enumerated() {
             callback?(
-                touchIndex: index,
-                state: state,
-                force: touch.force,
-                normalizedForce: touch.normalizedForce,
-                touchForce: touch.forceValue(forceValue),
-                location: touch.locationInView(touch.view))
+                index,
+                state,
+                touch.force,
+                touch.normalizedForce,
+                touch.forceValue(forceValue),
+                touch.location(in: touch.view))
         }
     }
 }

@@ -221,13 +221,16 @@
 				TargetAttributes = {
 					B2B6B8F31BDDE503009AE30E = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0820;
 					};
 					B2B6B9071BDDE503009AE30E = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = B2B6B8F31BDDE503009AE30E;
 					};
 					B2B6B9121BDDE503009AE30E = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = B2B6B8F31BDDE503009AE30E;
 					};
 				};
@@ -433,6 +436,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.prototapp.-DTouchHelper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -444,6 +448,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.prototapp.-DTouchHelper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -455,6 +460,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.prototapp.-DTouchHelperTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/3DTouchHelper.app/3DTouchHelper";
 			};
 			name = Debug;
@@ -467,6 +473,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.prototapp.-DTouchHelperTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/3DTouchHelper.app/3DTouchHelper";
 			};
 			name = Release;
@@ -478,6 +485,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.prototapp.-DTouchHelperUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = 3DTouchHelper;
 				USES_XCTRUNNER = YES;
 			};
@@ -490,6 +498,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.prototapp.-DTouchHelperUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = 3DTouchHelper;
 				USES_XCTRUNNER = YES;
 			};
@@ -514,6 +523,7 @@
 				B2B6B91E1BDDE503009AE30E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B2B6B91F1BDDE503009AE30E /* Build configuration list for PBXNativeTarget "3DTouchHelperTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +532,7 @@
 				B2B6B9211BDDE503009AE30E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B2B6B9221BDDE503009AE30E /* Build configuration list for PBXNativeTarget "3DTouchHelperUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +541,7 @@
 				B2B6B9241BDDE503009AE30E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

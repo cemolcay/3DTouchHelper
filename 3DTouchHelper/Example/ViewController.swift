@@ -11,17 +11,17 @@ import UIKit
 extension UIGestureRecognizerState: CustomDebugStringConvertible {
     public var debugDescription: String {
         switch self {
-        case .Began:
+        case .began:
             return "Began"
-        case .Cancelled:
+        case .cancelled:
             return "Cancel"
-        case .Changed:
+        case .changed:
             return "Changed"
-        case .Ended:
+        case .ended:
             return "Ended"
-        case .Failed:
+        case .failed:
             return "Failed"
-        case .Possible:
+        case .possible:
             return "Possible"
         }
     }
@@ -48,31 +48,31 @@ extension ViewController { // Basic Example
 extension ViewController { // Layer Example
     func layerExample() {
         add3DTouchGestureRecognizer { (touchIndex, state, force, normalizedForce, touchForce, location) -> Void in
-            if state == .Began {
+            if state == .began {
                 self.addLayer(touchIndex, position: location, normalizedForce: normalizedForce)
-            } else if state == .Changed {
+            } else if state == .changed {
                 self.updateLayer(touchIndex, position: location, normalizedForce: normalizedForce)
-            } else if state == .Ended || state == .Cancelled {
+            } else if state == .ended || state == .cancelled {
                 self.removeLayerAtIndex(touchIndex)
             }
         }
     }
 
-    func addLayer(index: Int, position: CGPoint, normalizedForce: CGFloat) {
+    func addLayer(_ index: Int, position: CGPoint, normalizedForce: CGFloat) {
         let forceLayer = ForceLayer(position: position, normalizedForce: normalizedForce)
         forceLayers.append(forceLayer)
         view.layer.addSublayer(forceLayer)
     }
 
-    func updateLayer(index: Int, position: CGPoint, normalizedForce: CGFloat) {
+    func updateLayer(_ index: Int, position: CGPoint, normalizedForce: CGFloat) {
         let forceLayer = forceLayers[index]
         forceLayer.update(position, normalizedForce: normalizedForce)
     }
 
-    func removeLayerAtIndex(index: Int) {
+    func removeLayerAtIndex(_ index: Int) {
         let forceLayer = forceLayers[index]
         forceLayer.removeFromSuperlayer()
-        forceLayers.removeAtIndex(index)
+        forceLayers.remove(at: index)
     }
 }
 
@@ -81,12 +81,12 @@ class ForceLayer: CALayer {
 
     init (position: CGPoint, normalizedForce: CGFloat) {
         super.init()
-        self.borderColor = UIColor.blackColor().CGColor
+        self.borderColor = UIColor.black.cgColor
         self.borderWidth = 0.5
         self.update(position, normalizedForce: normalizedForce)
     }
 
-    override init(layer: AnyObject) {
+    override init(layer: Any) {
         super.init(layer: layer)
     }
 
@@ -94,14 +94,14 @@ class ForceLayer: CALayer {
         super.init(coder: aDecoder)
     }
 
-    func update (position: CGPoint, normalizedForce: CGFloat) {
+    func update (_ position: CGPoint, normalizedForce: CGFloat) {
         let radius = getRadius(normalizedForce)
-        self.frame = CGRectMake(0, 0, radius, radius)
+        self.frame = CGRect(x: 0, y: 0, width: radius, height: radius)
         self.position = position
         self.cornerRadius = self.frame.size.width/2
     }
 
-    private func getRadius(normalizedForce: CGFloat) -> CGFloat {
+    fileprivate func getRadius(_ normalizedForce: CGFloat) -> CGFloat {
         return maxRadius * normalizedForce
     }
 }
