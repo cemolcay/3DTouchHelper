@@ -28,7 +28,7 @@ Requirements
 Usage
 ----
 
-Call `add3DTouchGestureRecognizer:` function form your view or viewcontroller.
+Call `add3DTouchGestureRecognizer:` function from your view or viewcontroller.
 
 ``` swift
 add3DTouchGestureRecognizer { (touchIndex, state, force, normalizedForce, forceValue, location) in

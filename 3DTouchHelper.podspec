@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "3DTouchHelper"
-  s.version      = "0.2"
+  s.version      = "0.21"
   s.summary      = "Easy to use continuous 3D touch gesture recognizer."
 
   # This description is used to generate tags and improve search results.
