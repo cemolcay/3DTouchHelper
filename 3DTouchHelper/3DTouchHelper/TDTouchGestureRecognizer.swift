@@ -103,7 +103,7 @@ private class TDTouchGestureRecognizer: UIGestureRecognizer {
     // MARK: Init
 
     convenience init(callback: @escaping TDTouchGestureRecognizerCallback, forceValue: TDTouchForceValue = TDTouchForceValue()) {
-        self.init(target: nil, action: "")
+        self.init(target: nil, action: Selector(""))
         self.callback = callback
         self.forceValue = forceValue
     }
