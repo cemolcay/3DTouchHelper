@@ -20,8 +20,8 @@ Copy & paste `3DTouchHelper` file into your project.
 Requirements
 ----
 
-* Xcode 7.1
-* Swift 2.1
+* Xcode 8.0
+* Swift 3
 * iOS9+
 * iDevice with 3DTouch screen
 
